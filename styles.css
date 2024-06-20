@@ -1,0 +1,203 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    background-image: url("./images/image\ copy.png")
+    }
+    
+    header {
+    background-color: #FFDD44;
+    color: black;
+    padding: 10px 0;
+    text-align: center;
+    }
+    
+    header .announcement {
+    background-color: #ffcc00;
+    color: #333;
+    padding: 10px;
+    text-align: center;
+    }
+    
+    header .announcement a {
+    color: #003399;
+    text-decoration: none;
+    }
+    
+    header .top-bar {
+    background-color: #003399;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    }
+    
+    header .logo {
+    height: 55px;
+    }
+    
+    .background {
+    height: 300px;
+    align-items: center;
+    padding: 30px 20px;
+    width: 60%;
+    background-position: center;
+    background-size: cover;
+    }
+    
+    nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    }
+    
+    nav ul li {
+    margin: 0 15px;
+    }
+    
+    nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    }
+    
+    .user-options {
+    display: flex;
+    align-items: center;
+    }
+    
+    .user-options span {
+    margin-right: 15px;
+    }
+    
+    .user-options button {
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    
+    .user-options button {
+    background-color: #cc2955;
+    }
+    
+    .search-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+    }
+    
+    .search-section h1 {
+    color: #003399;
+    }
+    
+    .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    }
+    
+    .form-group {
+    margin-bottom: 15px;
+    flex: 1;
+    padding: 0 10px;
+    }
+    
+    .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    }
+    
+    .form-group input,
+    .form-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    }
+    
+    .search-button {
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    }
+    
+    .booking-button {
+    background-color: #3fc705;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    }
+    
+    .results-button {
+    background-color: #3fc705;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    }
+    
+    .results-return-button {
+    background-color: #ff3366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    }
+    
+    .booking-button-return {
+        background-color: #ff3366;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .search-button {
+    background-color: #2505c7;
+    }
+    
+    .results-section,
+    .booking-section,
+    .checkin-section {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
+    }
+    
+    footer {
+
+    background-color: #003399;
+    color: white;
+    text-align: center;
+    padding: -5px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    }

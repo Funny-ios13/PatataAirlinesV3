@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patata Airlines</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="announcement">
+            <p><strong>Importante:</strong><i> Debido a la guerra y translado de propietario de la Isla Trolome, todos los vuelos quedaran cancelados temporalmente hasta nuevo aviso debido a reparaciones y mantenimiento en el Aeropuerto. Lamentamos las molestias. Actualizado: 18 de junio - 21:58h</i></p>
+        </div>
+        <div class="top-bar">
+            <img src="./images/PatataAirlines-Logo.png" alt="PatataAirlines Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#">Ofertas y destinos</a></li>
+                    <li><a href="#">Mis viajes</a></li>
+                    <li><a href="#">Centro de ayuda</a></li>
+                </ul>
+            </nav>
+            <div class="user-options">
+                <span>USD • $</span>
+                <button id="login">Iniciar sesión</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="menu-search">
+            <section class="search-section">
+                <h1>Compra tu vuelo</h1>
+                <form id="searchForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tripType">Tipo de viaje:</label>
+                            <select id="tripType" name="tripType">
+                                <option value="Ida y Vuelta">Ida y Vuelta</option>
+                                <option value="Solo Ida">Solo Ida</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="classType">Clase:</label>
+                            <select id="classType" name="classType">
+                                <option value="Economy">Economy</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="passengers">Pasajeros:</label>
+                            <input type="text" id="passengers" name="passengers" disabled value="1">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="origin">Origen:</label>
+                            <input type="text" id="origin" name="origin" required list="airport-list" oninput="validateInputs()">
+                        </div>
+                        <div class="form-group">
+                            <label for="destination">Destino:</label>
+                            <input type="text" id="destination" name="destination" required list="airport-list" oninput="validateInputs()">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="departureDate">Fecha de salida:</label>
+                            <input type="datetime-local" id="departureDate" name="departureDate" min="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="returnDate">Fecha de regreso:</label>
+                            <input type="datetime-local" id="returnDate" name="returnDate" min="" required>
+                        </div>                        
+                    </div>
+                    <button type="submit" class="search-button">Buscar</button>
+                </form>
+                <datalist id="airport-list">
+                    <option value="Aeropuerto Internacional de Patata City">PAT</option>
+                    <option value="Aeropuerto de Bartolome Island">BAR</option>
+                    <option value="Aeropuerto de Medellín">MED</option>
+                </datalist>
+            </section>
+        </div>
+        <div class="menu-results-section" hidden>
+            <section class="results-section" id="resultsSection">
+                <!-- Resultados de la búsqueda aparecerán aquí -->
+            </section>
+        </div>
+        <div class="menu-booking" hidden>
+            <section class="booking-section" id="bookingSection">
+                <h2>Detalles de los pasajeros</h2>
+                <form id="bookingForm">
+                    <div class="passenger-info" id="passengerInfo">
+                        <!-- Campos para los datos de los pasajeros se agregarán dinámicamente aquí -->
+                    </div>
+                    <div class="navigation-buttons">
+                        <button type="button" id="prevPassenger">Anterior</button>
+                        <button type="button" id="nextPassenger">Siguiente</button>
+                    </div>
+                    <button type="submit" id="submitBooking" hidden>Reservar</button>
+                </form>
+            </section>
+        </div>
+        <section class="checkin-section" id="checkinSection" style="display: none;">
+            <h2>Check-In</h2>
+            <form id="checkinForm">
+                <div class="form-group">
+                    <label for="checkinID">ID de Reserva:</label>
+                    <input type="text" id="checkinID" name="checkinID" required>
+                </div>
+                <button type="submit">Check-In</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Patata Airlines</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        function validateInputs() {
+            var originInput = document.getElementById('origin');
+            var destinationInput = document.getElementById('destination');
+            var datalist = document.getElementById('airport-list');
+            var options = datalist.getElementsByTagName('option');
+            var isValidOrigin = false;
+            var isValidDestination = false;
+
+            for (var i = 0; i < options.length; i++) {
+                if (originInput.value === options[i].value) {
+                    isValidOrigin = true;
+                }
+                if (destinationInput.value === options[i].value) {
+                    isValidDestination = true;
+                }
+            }
+
+            if (!isValidOrigin) {
+                originInput.setCustomValidity('Por favor selecciona un aeropuerto de la lista para el origen.');
+            } else {
+                originInput.setCustomValidity('');
+            }
+
+            if (!isValidDestination) {
+                destinationInput.setCustomValidity('Por favor selecciona un aeropuerto de la lista para el destino.');
+            } else {
+                destinationInput.setCustomValidity('');
+            }
+
+            if (originInput.value === destinationInput.value) {
+                originInput.setCustomValidity('Los aeropuertos de origen y destino no pueden ser iguales.');
+                destinationInput.setCustomValidity('Los aeropuertos de origen y destino no pueden ser iguales.');
+            }
+        }
+    </script>
+</body>
+</html>
