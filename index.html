@@ -10,9 +10,9 @@
 </head>
 <body>
     <header>
-        <div class="announcement">
+        <!--<div class="announcement">
             <p><strong>Importante:</strong><i> Debido a la guerra y translado de propietario de la Isla Trolome, todos los vuelos quedaran cancelados temporalmente hasta nuevo aviso debido a reparaciones y mantenimiento en el Aeropuerto. Lamentamos las molestias. Actualizado: 18 de junio - 21:58h</i></p>
-        </div>
+        </div>-->
         <div class="top-bar">
             <img src="./images/PatataAirlines-Logo.png" alt="PatataAirlines Logo" class="logo">
             <nav>
@@ -24,11 +24,14 @@
             </nav>
             <div class="user-options">
                 <span>USD • $</span>
-                <button id="login">Iniciar sesión</button>
+                <button id="login" hidden>Iniciar sesión</button>
             </div>
         </div>
     </header>
     <main>
+        <br>
+        <br>
+        <br>
         <div class="menu-search">
             <section class="search-section">
                 <h1>Compra tu vuelo</h1>
@@ -45,11 +48,12 @@
                             <label for="classType">Clase:</label>
                             <select id="classType" name="classType">
                                 <option value="Economy">Economy</option>
+                                <option value="Premium Economy">Premium Economy</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="passengers">Pasajeros:</label>
-                            <input type="text" id="passengers" name="passengers" disabled value="1">
+                            <input type="number" id="passengers" name="passengers" min="1" max="3" required>
                         </div>
                     </div>
                     <div class="form-row">
@@ -69,52 +73,31 @@
                         </div>
                         <div class="form-group">
                             <label for="returnDate">Fecha de regreso:</label>
-                            <input type="datetime-local" id="returnDate" name="returnDate" min="" required>
-                        </div>                        
+                            <input type="datetime-local" id="returnDate" name="returnDate">
+                        </div>
                     </div>
-                    <button type="submit" class="search-button">Buscar</button>
+                    <button type="submit" class="search-button">Buscar vuelos</button>
                 </form>
                 <datalist id="airport-list">
                     <option value="Aeropuerto Internacional de Patata City">PAT</option>
                     <option value="Aeropuerto de Bartolome Island">BAR</option>
                     <option value="Aeropuerto de Medellín">MED</option>
+                    <option value="Aeropuerto de Trolome">MED</option>
                 </datalist>
             </section>
         </div>
-        <div class="menu-results-section" hidden>
-            <section class="results-section" id="resultsSection">
-                <!-- Resultados de la búsqueda aparecerán aquí -->
-            </section>
-        </div>
         <div class="menu-booking" hidden>
-            <section class="booking-section" id="bookingSection">
-                <h2>Detalles de los pasajeros</h2>
+            <section class="booking-section">
+                <h2>Información de Pasajeros</h2>
                 <form id="bookingForm">
-                    <div class="passenger-info" id="passengerInfo">
-                        <!-- Campos para los datos de los pasajeros se agregarán dinámicamente aquí -->
-                    </div>
-                    <div class="navigation-buttons">
-                        <button type="button" id="prevPassenger">Anterior</button>
-                        <button type="button" id="nextPassenger">Siguiente</button>
-                    </div>
-                    <button type="submit" id="submitBooking" hidden>Reservar</button>
+                    <div id="passengerInfo"></div>
+                    <button type="button" id="prevPassenger">Anterior</button>
+                    <button type="button" id="nextPassenger">Siguiente</button>
+                    <button type="submit" id="submitBooking">Enviar Reserva</button>
                 </form>
             </section>
         </div>
-        <section class="checkin-section" id="checkinSection" style="display: none;">
-            <h2>Check-In</h2>
-            <form id="checkinForm">
-                <div class="form-group">
-                    <label for="checkinID">ID de Reserva:</label>
-                    <input type="text" id="checkinID" name="checkinID" required>
-                </div>
-                <button type="submit">Check-In</button>
-            </form>
-        </section>
     </main>
-    <footer>
-        <p>&copy; 2024 Patata Airlines</p>
-    </footer>
     <script src="script.js"></script>
     <script>
         function validateInputs() {
