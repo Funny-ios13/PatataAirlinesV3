@@ -145,7 +145,37 @@ body {
     cursor: pointer;
     font-size: 16px;
     }
+
+    #prevPassenger {
+        background-color: #2505c7;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
     
+    #nextPassenger {
+        background-color: #2505c7;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    #submitBooking {
+        background-color: #3fc705;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
     .results-button {
     background-color: #3fc705;
     color: white;
@@ -201,3 +231,18 @@ body {
     width: 100%;
     bottom: 0;
     }
+
+    .menu-booking[hidden] {
+        display: none;
+    }
+    
+    button {
+        margin: 5px;
+    }
+    
+    #prevPassenger,
+    #nextPassenger,
+    #submitBooking {
+        display: none;
+    }
+    
